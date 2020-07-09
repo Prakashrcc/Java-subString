@@ -3,6 +3,7 @@ package com.pks;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class SubStringFile {
 	
@@ -87,10 +88,13 @@ public class SubStringFile {
 		
 		return subString;
 	}
-	
+	//C:\\Users\\Prakash\\Desktop\\substring.txt
 	public static String getFile() throws IOException {
 		//method to get a file
-		String string = new String(Files.readAllBytes(Paths.get("C:\\Users\\Prakash\\Desktop\\substring.txt")));
+		Scanner inputScanner=new Scanner(System.in);
+		System.out.println("Enter the file name along with the path");
+		String path=inputScanner.nextLine();
+		String string = new String(Files.readAllBytes(Paths.get(path)));
 		
 		return string;
 	}
