@@ -11,7 +11,7 @@ package com.pks;
 import java.util.Scanner;
 
 
-public class subString {
+public class SubString {
 
 	
 	public static String getFirstCharacter(String string) {
