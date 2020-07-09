@@ -19,27 +19,16 @@ public class SubStringFile {
 		}
 		return lastChar;
 	}
-	public static String getSubStringWithoutSpace(String subString) {
-		// Function to remove white spaces and other non alphabetic character from string
-		
-		 StringBuffer stringBuffer = new StringBuffer();  
-			for(int i=0;i<subString.length();i++) {
-				if(Character.isLetter(subString.charAt(i))) {   // Checking if the character is alphabetic
-					stringBuffer.append(subString.charAt(i));   // Storing the alphabet
-				}
-			}
-			
-		return stringBuffer.toString();
-	}
+	
 	
 	public static String getSubStringFile(String string) {
 		// 
 		if(string == null) {
-			// If string is null return null
+			
 			return null;
 		}
 		if(string.length()==0) {
-			// If string is empty return empty substring;
+			
 			return "";
 		}
 		string.toLowerCase();		
@@ -50,12 +39,12 @@ public class SubStringFile {
 		//getting the first alphabetic character
 		char lastChar=getFirstChar(string);
 		for (int i = 1; i < string.length(); i++) {
-			
+			char positionChar=string.charAt(i);
 			 // Checking if the character is alphabetic
-			if ( Character.isLetter(string.charAt(i))) {       
+			if ( Character.isLetter(positionChar)) {       
 				
 				//checking if it is consecutive or having alphabet circle back
-				if ((lastChar - string.charAt(i)) == -1 || (lastChar - string.charAt(i)) == 25) {
+				if ((lastChar - positionChar) == -1 || (lastChar - positionChar) == 25) {
 					len++;
 				
 					if (subString.length() < len) {
@@ -65,12 +54,12 @@ public class SubStringFile {
 
 					}
 					
-					lastChar=string.charAt(i);
+					lastChar=positionChar;
 				} else {
 				
 					startIndex = i;
 					len = 1;
-					lastChar=string.charAt(i);
+					lastChar=positionChar;
 				}
 			}
 			else {
@@ -82,7 +71,8 @@ public class SubStringFile {
 		if(subString.length()>0) {
 			
 			// Removing whitespace and other non alphabetic character from the subString
-			subString=getSubStringWithoutSpace(subString);
+			
+			subString=subString.replaceAll("[^a-z]", "");
 		}
 		
 		
@@ -95,7 +85,7 @@ public class SubStringFile {
 		System.out.println("Enter the file name along with the path");
 		String path=inputScanner.nextLine();
 		String string = new String(Files.readAllBytes(Paths.get(path)));
-		
+		inputScanner.close();
 		return string;
 	}
 

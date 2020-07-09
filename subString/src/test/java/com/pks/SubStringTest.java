@@ -41,6 +41,26 @@ class SubStringTest {
 		assertEquals("xyzabcd", SubString.getSubString("abcdxyzabcdtghy"));
 		
 	}
+	
+	@Test
+	void test6() {
+		//test case to check consecutive alphabet string
+		assertEquals("abcdefghijklmnop", SubString.getSubString("abcdefghijklmnop"));
+		
+	}
+	
+	@Test
+	void test7() {
+		//test case to check numeric String
+		assertEquals("", SubString.getSubString("1234567890"));
+		
+	}
+	@Test
+	void test8() {
+		//test case to check numeric String
+		assertEquals("abcde", SubString.getSubString("abc45678abcde"));
+		
+	}
 
 
 }

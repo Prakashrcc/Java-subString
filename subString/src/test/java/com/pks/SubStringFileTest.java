@@ -14,6 +14,8 @@ class SubStringFileTest {
 		
 	}
 	
+	
+	
 	@Test
 	void test2() {
 		//test case to check a  string
@@ -49,7 +51,25 @@ class SubStringFileTest {
 		assertEquals("xyzabcd",SubStringFile.getSubStringFile("1234xyzabcdtghy"));
 		
 	}
+	@Test
+	void test7() {
+		//test case to check numeric string
+		assertEquals("", SubString.getSubString("1234567890"));
+		
+	}
+	@Test
+	void test8() {
+		//test case to check numeric string
+		assertEquals("abcdefghijklmnop", SubString.getSubString("abcdefghijklmnop"));
+		
+	}
 
+	@Test
+	void test9() {
+		//test case to check multiple line  alphanumeric string
+		assertEquals("abcdefg", SubStringFile.getSubStringFile("abcd1234\n  efg  "));
+		
+	}
 
 
 }

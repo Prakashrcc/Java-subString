@@ -30,12 +30,12 @@ public class SubString {
 	public static String getSubString(String string) {
 		// Function to get the Longest subString
 		if(string == null) {
-			// If string is null return null
+			
 			return null;
 		}
 		
 		if(string.length()==0) {
-			// If string is empty return empty subString
+			
 			return "";
 		}
 		
@@ -47,11 +47,13 @@ public class SubString {
 		int startIndex = 0;
 		for (int i = 1; i < string.length(); i++) {
 			
+			char positionChar=string.charAt(i);
+			char previousChar=string.charAt(i-1);
 			//checking if the character is letter
-			if (Character.isLetter(string.charAt(i - 1)) && Character.isLetter(string.charAt(i))) {
+			if (Character.isLetter(previousChar) && Character.isLetter(positionChar)) {
 				
 				//checking if it is consecutive or having alphabet circle back
-				if ((string.charAt(i - 1) - string.charAt(i)) == -1 || (string.charAt(i - 1) - string.charAt(i)) == 25) {
+				if ((previousChar - positionChar) == -1 || (previousChar - positionChar) == 25) {
 					len++;
 					if (subString.length() < len) {
 						//if length of the previously stored subString is less then changing it
